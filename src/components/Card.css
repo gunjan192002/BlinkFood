@@ -1,0 +1,15 @@
+@media screen and (max-width: 755px) and (min-width:512px){
+    .resp{
+        left: 30%;
+    }
+}
+@media screen and (max-width:512px) and (min-width:360px) {
+    .resp{
+        left: 10%;
+    }
+}
+@media screen and (max-width:359px) {
+    .resp{
+        left:4%
+    }
+}

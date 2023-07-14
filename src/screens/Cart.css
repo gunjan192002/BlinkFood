@@ -1,0 +1,29 @@
+/* .table-responsive {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+@media (max-width: 767.98px){
+.table-responsive-md {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+}
+.table{
+    display: block !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+  }
+@media (max-width: 410px){
+.table {
+    display: block !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+} */
+
+.resp{
+overflow-y: scroll;
+margin: 1rem;
+}

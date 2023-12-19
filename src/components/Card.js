@@ -29,7 +29,7 @@ export default function Card(props) {
         }
         console.log(food)
         console.log(new Date())
-        if (food !== []) {
+        
           if (food.size === size) {
             await dispatch({ type: "UPDATE", id: props.item._id, price: finalPrice, qty: qty })
             return
@@ -40,7 +40,7 @@ export default function Card(props) {
             return
           }
           return
-        }
+        
     
         await dispatch({ type: "ADD", id: props.item._id, name: props.item.name, price: finalPrice, qty: qty, size: size })
       }
@@ -82,12 +82,8 @@ export default function Card(props) {
                         {/* <button className={`justify-center mb-n2 fs-5 text-success`} style={{"textDecorationLine":"none"}} onClick={handleComment}> Leave a comment.</button> */}
                         </div>
                         
-                        <hr>
-                        </hr>
-                        <div className='me-1 mt-n2' style={{"marginTop":"-0.50rem !important"}}> 
-
-                        <button className={`btn btn-success justify-center fw-bold`} onClick={handleAddToCart}>Add to Cart</button>
-                        </div>
+                      
+                        
                         
                     </div>
                 </div>

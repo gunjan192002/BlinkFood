@@ -7,6 +7,8 @@ import Carousel from '../components/Carousel'
 import axios from 'axios';
 export default function Home() {
     const navigate = useNavigate();
+    const [show, setShow] = useState(true);
+    const [category,setCategory] = useState("");
     const [foodCat, setFoodCat] = useState([]);
     const [foodItem, setFoodItem] = useState([]);
     const [search, setSearch] = useState('')
@@ -58,21 +60,29 @@ export default function Home() {
 
 
     const loadFoodItems = async () => {
-        let response = await fetch("http://localhost:5000/api/foodData", {
+        let response = await fetch("http://localhost:8000/api/foodData", {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             }
+            
 
+            
         });
         response = await response.json()
+        // console.log(response[1])
         // console.log(response[1][0].CategoryName)
         setFoodItem(response[0])
         setFoodCat(response[1])
-        console.log(foodCat);
+        console.log(foodItem);
 
+    }
+    const toggleSection = () =>{
+        // console.log(e);
+        setShow(!show);
+        // {show?setCategory(e):setCategory("")}
     }
 
     const handleComments = async() =>{
@@ -95,7 +105,7 @@ export default function Home() {
 
 
 
-
+    console.log(foodCat);
     return (
         <div className='bg-dark' style={{"overflow":"hidden"}}>
             <div><Navbar /></div>
@@ -128,46 +138,34 @@ export default function Home() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div></div>
+            
              <div className='container'>
               {
-                    foodCat !== []
-                        ? foodCat.map((data) => {
+                    foodCat.map((data) => {
                             return (
                                 // justify-content-center
                                 <div className='row mb-3'>
-                                    <div key={data._id}  className='fs-3 m-3 text-white'>
+                                    <div onClick = {toggleSection}  key={data._id}  className='fs-3 m-3 text-white'>
                                         {data.CategoryName}
                                     </div>
                                     <hr id="hr-success" style={{ height: "4px", backgroundImage: "-webkit-linear-gradient(left,rgb(0, 255, 137),rgb(0, 0, 0))" }} />
-                                    {foodItem !== [] ? foodItem.filter(
+                                    { foodItem.filter(
                                         (items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
                                         .map(filterItems => {
+                                            
                                             return (
                                                 <div key={filterItems._id} className='col-12 col-md-6 col-lg-4 text-center'>
-                                                    {console.log(filterItems.url)}
+                                                    {/* {console.log(filterItems.url)} */}
                                                     <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} ></Card>
                                                 </div>
                                             )
-                                        }) : <div className='text-white'> No Such Data </div>}
+                                        }) }
                                 </div>
                             )
                         })
-                    : ""}
+                    }
             </div> 
-            <div>
-            <div className='container'>
-     <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div className="col-md-4 d-flex align-items-center text-center " >
-  
-  <button className={`justify-center mb-1 fs-5 text-white mt-4 p-3`} style={{"textDecorationLine":"none","backgroundColor":"#00bcd4" , "border":"2px solid #00bcd4", "borderRadius":"15px"}} onClick={handleComments}> Post a comment...</button>
-
-  <Link to="/reviews">
-  <button className={`justify-center mb-1 fs-5 text-white mt-4 p-3 ms-4`} style={{"textDecorationLine":"none","backgroundColor":"#00bcd4" , "border":"2px solid #00bcd4", "borderRadius":"15px"}}> Review Comments</button>
-  </Link>  
-    </div>
-  </footer>
-    </div>
-            </div>
+           
             <div><Footer /></div>
         </div>
     )

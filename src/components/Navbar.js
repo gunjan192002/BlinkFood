@@ -1,7 +1,25 @@
-import { React } from 'react'
-import { Link } from 'react-router-dom'
+import { React, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import Badge from "react-bootstrap/Badge";
+// import ShoppingCartIcon from "@react-bootstrap/icon/ShoppingCart";
+import { BsCart2 } from "react-icons/bs";
+import Modal from '../Modal';
+import Cart from '../screens/Cart';
+import { useCart } from './ContextReducer';
 export default function Navbar() {
-
+  const navigate = useNavigate();
+  const [cartView, setCartView] = useState(false)
+  const data = useCart();
+  // console.log("authToken");
+  // console.log({sessionStorage.getItem("authToken")});
+  // sessionStorage.setItem('temp', "first")
+  const handleLogout = () => {
+    navigate("/login");
+    sessionStorage.removeItem("userEmail");
+  }
+  const loadCart = () => {
+    setCartView(true)
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success" >
@@ -10,6 +28,43 @@ export default function Navbar() {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto ">
+              <li className="nav-item">
+                <Link className="nav-link active fs-5" aria-current="page" to="/">Home</Link>
+              </li>
+              
+              {(sessionStorage.getItem("userEmail"))?
+              <li className="nav-item">
+                <Link className='nav-link  active fs-5' aria-current="page" to="/myorders">My Orders</Link>
+              </li>
+              :""}
+            </ul>
+            {(!sessionStorage.getItem("userEmail")) ?
+                            <form className="d-flex">
+                              
+                                <Link className="btn bg-white text-success mx-1 " to="/login">Login</Link>
+                                <Link className="btn bg-white text-success mx-1" to="/createuser">Signup</Link>
+                            </form> :
+            <div className='d-flex flex-row'>
+            <div className="btn bg-white text-success mx-2 d-flex" onClick={loadCart}>
+              <div className='me-2'>
+                My Cart
+                </div>
+              <Badge color="secondary" className=' mt-1 bg-success d-flex' 
+              
+              >
+                < BsCart2 className='mx-1'/>       
+                <div className='text-danger'>
+                    {data.length}
+                </div>
+                
+              </Badge>
+            </div>
+            {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
+            <div className="btn bg-white text-danger mx-2" onClick={handleLogout}> LogOut
+            </div></div>}
+          </div>
         </div>
       </nav>
     </div>

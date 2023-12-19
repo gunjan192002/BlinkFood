@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-// const port = 5000;
+const port = 5000;
 app.use(cors({origin: true, credentials: true}));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://64b167989faf8d2ed4f758ca--delicate-manatee-00c85a.netlify.app/");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept"
@@ -12,7 +12,6 @@ app.use((req, res, next) => {
   next();
 })
 const { mongoDB } = require("./db")
-// console.log(object)
 mongoDB();
 app.use(express.json())
 app.use('/api',require("./Routes/CreateUser"))
@@ -26,7 +25,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-const PORT = process.env.PORT||8000
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })

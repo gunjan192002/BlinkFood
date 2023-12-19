@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+/* html,
+body {
+    height: 100%
+}
+
+body {
+    display: grid;
+   place-items: center;
+   background-color: #495057;
+    
+} */
+
+.cards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px;
+    
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 6px;
+    /* -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1); */
+    margin: auto;
+    margin-top: 10%;
+}
+
+.comment-box{
+    
+    padding:5px;
+}
+
+
+
+.comment-area textarea{
+   resize: none; 
+        border: 1px solid #ad9f9f;
+}
+
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgb(15, 186, 95) !important;
+}
+
+

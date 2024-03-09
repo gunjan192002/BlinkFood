@@ -61,7 +61,7 @@ export default function Home() {
         let response = await fetch("http://localhost:5000/api/foodData", {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }

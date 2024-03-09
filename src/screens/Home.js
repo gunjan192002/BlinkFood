@@ -72,6 +72,7 @@ export default function Home() {
         setFoodItem(response[0])
         setFoodCat(response[1])
         console.log(foodCat);
+        return;
 
     }
 

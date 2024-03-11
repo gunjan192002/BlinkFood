@@ -11,6 +11,6 @@ router.get("/foodData", async (req,res)=>{
         console.error(error.message);
        return res.send("server Error");
     }
-})
+});
 
 module.exports = router;

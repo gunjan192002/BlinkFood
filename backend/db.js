@@ -5,8 +5,8 @@ const url = 'food_items';
 console.log(url);
 let foodItems = [];
 let categoryItems = [];
-const mongoDB = async() =>{
-    try {
+const mongoDB = async () =>{
+  try {
         mongoose.set("strictQuery", false);
         await mongoose.connect(mongoURI,{useNewUrlParser: true});
         console.log("Connected to Mongo Successfully!!!!");
@@ -20,9 +20,12 @@ const mongoDB = async() =>{
         categoryItems = fetc_data_tmp;
         const  fetc_data_cat = await mongoose.connection.collection("coupons");
         const fetc_data_cat_tmp = await fetc_data_cat.find({}).toArray();
+        module.exports.foodItems = foodItems;
+        module.exports.categoryItems = categoryItems;
       
       } catch (error) {
-        // console.log(error);
+        console.log(error);
       }
     };
-module.exports = {mongoDB, foodItems, categoryItems};
+
+module.exports = {mongoDB};

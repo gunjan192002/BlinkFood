@@ -6,7 +6,7 @@ export default function Reviews() {
     const [data,setData] = useState([]);
     const fetchComments = async () => {
         console.log(sessionStorage.getItem('userEmail'))
-        await fetch("http://localhost:5000/api/viewreview", {
+        await fetch("https://gofood-1-jhy3.onrender.com/api/viewreview", {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
             method: 'POST',

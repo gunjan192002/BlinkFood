@@ -47,7 +47,7 @@ export default function SignUp() {
       password: credentials.password,
       location: credentials.geolocation,
     }
-    await axios.post('http://localhost:5000/api/createuser', data).then(res => {
+    await axios.post('https://gofood-1-jhy3.onrender.com/api/createuser', data).then(res => {
 
       console.log(res.data.error);
       const signedUp = res.data.error;

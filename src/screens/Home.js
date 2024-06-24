@@ -16,7 +16,7 @@ export default function Home() {
     //             "Content-Type": "application/json",
     //             // Authorization: apiKey,
     //           };
-    //         await axios.post('http://localhost:5000/api/foodData').then(res=>{
+    //         await axios.post('https://gofood-1-jhy3.onrender.com/apiapifoodData').then(res=>{
 
     //         //   alert("Invalid");
     //         // setFoodCat(res.data[1]);
@@ -40,7 +40,7 @@ export default function Home() {
 
     //     useEffect(()=>{
     //         loadData();
-    //     //  axios.post('http://localhost:5000/api/foodData').then(res=>{
+    //     //  axios.post('https://gofood-1-jhy3.onrender.com/apifoodData').then(res=>{
 
     //     //     //   alert("Invalid");
     //     //     // setFoodCat(res.data);
@@ -58,7 +58,7 @@ export default function Home() {
 
 
     const loadFoodItems = async () => {
-        let response = await fetch("http://localhost:5000/api/foodData", {
+        let response = await fetch("https://gofood-1-jhy3.onrender.com/api/foodData", {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
             method: 'GET',
@@ -111,13 +111,13 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="carousel-item active" >
-                        <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
+                        <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x700/?pastry" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src="https://source.unsplash.com/random/900x700/?barbeque" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+                        <img src="https://images.unsplash.com/photo-1565976469782-7c92daebc42e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

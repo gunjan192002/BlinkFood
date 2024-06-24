@@ -18,7 +18,7 @@ export default function Login() {
       email: credentials.email,
       password: credentials.password,
     }
-    axios.post('http://localhost:5000/api/loginuser', data).then(res=>{
+    axios.post('https://gofood-1-jhy3.onrender.com/api/loginuser', data).then(res=>{
 
     // alert("User Found");
     // console.log(res.authToken);

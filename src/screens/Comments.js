@@ -40,7 +40,7 @@ export default function Comments() {
         //   order_date: new Date().toDateString()  
         }
         console.log(data);
-        await axios.post('http://localhost:5000/api/comment', data).then(res => {
+        await axios.post('https://gofood-1-jhy3.onrender.com/api/comment', data).then(res => {
             console.log(sessionStorage.getItem("userName"))
     
           console.log(res.data.error);

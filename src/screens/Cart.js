@@ -15,7 +15,7 @@ export default function Cart() {
     const userMail = sessionStorage.getItem("userEmail");
     const userName = sessionStorage.getItem("userName");
     console.log(userMail);
-    let response = await fetch("http://localhost:5000/api/orderData", {
+    let response = await fetch("https://gofood-1-jhy3.onrender.com/api/orderData", {
               // credentials: 'include',
               // Origin:"http://localhost:3000/login",
               method: 'POST',
@@ -52,7 +52,7 @@ export default function Cart() {
     const data = {
       Coupon: coupon.name,
     }
-    axios.post('http://localhost:5000/api/discount', data).then(res=>{
+    axios.post('https://gofood-1-jhy3.onrender.com/api/discount', data).then(res=>{
 
     // alert("User Found");
     console.log(res.data.dis);
@@ -91,7 +91,7 @@ export default function Cart() {
 //   const handleCheckOut = async () => {
 //     let userEmail = sessionStorage.getItem("userEmail");
 //     // console.log(data,sessionStorage.getItem("userEmail"),new Date())
-//     let response = await fetch("http://localhost:5000/api/auth/orderData", {
+//     let response = await fetch("https://gofood-1-jhy3.onrender.com/auth/orderData", {
 //       // credentials: 'include',
 //       // Origin:"http://localhost:3000/login",
 //       method: 'POST',

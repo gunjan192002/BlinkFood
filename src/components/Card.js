@@ -79,7 +79,7 @@ export default function Card(props) {
                                 })}
                             </select>
                             <div className='d-inline h-100 fs-5'>  ₹{finalPrice}/-</div>
-                        {/* <button className={`justify-center mb-n2 fs-5 text-success`} style={{"textDecorationLine":"none"}} onClick={handleComment}> Leave a comment.</button> */}
+                         <button className={`justify-center mb-n2 fs-5 text-success`} style={{"textDecorationLine":"none"}} onClick={handleAddToCart}> Add to Cart</button> 
                         </div>
                         
                       

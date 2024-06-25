@@ -1,15 +1,10 @@
 
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from '../components/Navbar';
-
 export default function SignUp() {
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [location, setLocation] = useState('');
+
   const [show, setShow] = useState(false);
   const [sign, setSign] = useState(false);
   const navigate = useNavigate();
@@ -36,11 +31,7 @@ export default function SignUp() {
   //  })
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(e);
-    const headers = {
-      "Content-Type": "application/json",
-      // Authorization: apiKey,
-    };
+   
     const data = {
       name: credentials.name,
       email: credentials.email,
@@ -89,22 +80,10 @@ export default function SignUp() {
     //   const json = await response.json()
     //   console.log(json);
   }
-  const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
-  }
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  }
-  const handleMailChange = (e) => {
-    setEmail(e.target.value);
-  }
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
-  }
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    // onchange();
-  }
+  // const onChange = (e) => {
+  //   setCredentials({ ...credentials, [e.target.name]: e.target.value })
+  // }
+ 
   const handleChange = e => {
     const { name, value } = e.target;
     setCredentials(prevState => ({

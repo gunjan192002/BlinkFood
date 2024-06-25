@@ -30,10 +30,10 @@ export default function Comments() {
         e.preventDefault();
         // console.log(e);
         
-        const headers = {
-          "Content-Type": "application/json",
-          // Authorization: apiKey,
-        };
+        // const headers = {
+        //   "Content-Type": "application/json",
+        //   // Authorization: apiKey,
+        // };
         const data = {
           userName: name,
           commnts: comm,

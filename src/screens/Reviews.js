@@ -30,7 +30,7 @@ export default function Reviews() {
         <div><Navbar/></div>
         <div className='container'>
     <div className='row'>
-    {data != {}?
+    {data !== {}?
     data.map((dt,i)=>{
         return (
             // <h3 key={i}>{dt.name}</h3>

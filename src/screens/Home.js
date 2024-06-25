@@ -3,8 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
-import Carousel from '../components/Carousel'
-import axios from 'axios';
+
 export default function Home() {
     const navigate = useNavigate();
     const [foodCat, setFoodCat] = useState([]);
@@ -88,8 +87,7 @@ export default function Home() {
       }
     useEffect(() => {
         loadFoodItems();
-        // sessionStorage.removeItem("userEmail");
-        // console.log(sessionStorage.getItem("userName"));
+     
     }, [])
 
 
@@ -131,7 +129,7 @@ export default function Home() {
             </div></div>
              <div className='container'>
               {
-                    foodCat != []
+                    foodCat !==[]
                         ? foodCat.map((data) => {
                             return (
                                 // justify-content-center
@@ -140,7 +138,7 @@ export default function Home() {
                                         {data.CategoryName}
                                     </div>
                                     <hr id="hr-success" style={{ height: "4px", backgroundImage: "-webkit-linear-gradient(left,rgb(0, 255, 137),rgb(0, 0, 0))" }} />
-                                    {foodItem != [] ? foodItem.filter(
+                                    {foodItem !==[] ? foodItem.filter(
                                         (items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
                                         .map(filterItems => {
                                             return (

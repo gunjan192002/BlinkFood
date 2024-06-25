@@ -1,9 +1,9 @@
 import {React,useRef,useState,useEffect} from 'react'
 import { useDispatchCart, useCart } from './ContextReducer'
 import './Card.css'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 export default function Card(props) {
-  const navigate=useNavigate();
+  // const navigate=useNavigate();
     const dispatch = useDispatchCart();
     let data = useCart();
     let options = props.options;
@@ -11,9 +11,9 @@ export default function Card(props) {
     const priceRef = useRef();
     const [qty, setQty] = useState(1)
     const [size, setSize] = useState("")
-    const handleComment = async() =>{
-      navigate("/mycomment")
-    }
+    // const handleComment = async() =>{
+    //   navigate("/mycomment")
+    // }
     const handleAddToCart = async () => {
       if(!sessionStorage.getItem("userEmail")){
         alert("Login to Select Food Items");
@@ -42,7 +42,7 @@ export default function Card(props) {
           return
         
     
-        await dispatch({ type: "ADD", id: props.item._id, name: props.item.name, price: finalPrice, qty: qty, size: size })
+        // await dispatch({ type: "ADD", id: props.item._id, name: props.item.name, price: finalPrice, qty: qty, size: size })
       }
     }
     //  console.log(data)

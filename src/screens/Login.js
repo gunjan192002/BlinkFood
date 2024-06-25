@@ -1,7 +1,7 @@
 import {React,useState,useEffect} from 'react'
 import axios from 'axios'
 import {Link, useNavigate} from 'react-router-dom'
-import Navbar1 from '../components/Navbar1'
+// import Navbar1 from '../components/Navbar1'
 
 export default function Login() {
   const [credentials, setCredentials] = useState({  email: "", password: "" })
@@ -10,10 +10,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(e);
-    const headers = {
-      "Content-Type": "application/json",
-      // Authorization: apiKey,
-    };
+    // const headers = {
+    //   "Content-Type": "application/json",
+    //   // Authorization: apiKey,
+    // };
     const data = {
       email: credentials.email,
       password: credentials.password,

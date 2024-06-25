@@ -56,24 +56,24 @@ export default function Home() {
 
 
 
-    const loadFoodItems = async () => {
-        let response = await fetch("https://gofood-1-jhy3.onrender.com/api/foodData", {
-            // credentials: 'include',
-            // Origin:"http://localhost:3000/login",
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+    // const loadFoodItems = async () => {
+    //     let response = await fetch("https://gofood-1-jhy3.onrender.com/api/foodData", {
+    //         // credentials: 'include',
+    //         // Origin:"http://localhost:3000/login",
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
 
-        });
-        response = await response.json()
-        // console.log(response[1][0].CategoryName)
-        setFoodItem(response[0])
-        setFoodCat(response[1])
-        console.log(foodCat);
+    //     });
+    //     response = await response.json()
+    //     // console.log(response[1][0].CategoryName)
+    //     setFoodItem(response[0])
+    //     setFoodCat(response[1])
+    //     console.log(foodCat);
     
 
-    }
+    // }
 
     const handleComments = async() =>{
         if(!sessionStorage.getItem("userName")){
@@ -85,13 +85,26 @@ export default function Home() {
         navigate("/mycomment")
           }
       }
-    useEffect(() => {
-        loadFoodItems();
-     
-    }, [])
-
-
-
+      useEffect(() => {
+        // Define loadFoodItems here
+        const loadFoodItems = async () => {
+            let response = await fetch("https://gofood-1-jhy3.onrender.com/api/foodData", {
+                // credentials: 'include',
+                // Origin:"http://localhost:3000/login",
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+    
+            });
+            response = await response.json()
+            // console.log(response[1][0].CategoryName)
+            setFoodItem(response[0])
+            setFoodCat(response[1])
+        }
+        
+        loadFoodItems(); // Call the function here
+      }, []); 
 
 
 

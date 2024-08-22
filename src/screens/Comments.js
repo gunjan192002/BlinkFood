@@ -1,132 +1,59 @@
-import React, { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Comment.css';
 import axios from 'axios';
-
+import Navbar from '../components/Navbar';
 export default function Comments() {
     const navigate = useNavigate();
-    const name = sessionStorage.getItem("userName");
-    const [comm, setComm] = useState("");
+    const name = sessionStorage.getItem("userName"); // Fetching the username from sessionStorage
+    const [comm, setComm] = useState(""); // State to handle comment input
 
+    // Function to handle comment submission
     const handleSubmit = async (e) => {
-        // e.preventDefault();
-        // console.log("called");
-        // let response = await fetch("http://localhost:5000/api/comment", {
-        //     // credentials: 'include',
-        //     // Origin:"http://localhost:3000/login",
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //         userName: name,
-        //         commnts: comm,
-        //         order_date: new Date().toDateString()
-        //     })
-        // });
-        // // console.log("JSON RESPONSE:::::", response.status)
-
-
-        e.preventDefault();
-        // console.log(e);
+        e.preventDefault(); // Prevent page refresh on form submission
         
-        // const headers = {
-        //   "Content-Type": "application/json",
-        //   // Authorization: apiKey,
-        // };
         const data = {
           userName: name,
-          commnts: comm,
-        //   order_date: new Date().toDateString()  
-        }
-        console.log(data);
-        await axios.post('https://gofood-1-jhy3.onrender.com/api/comment', data).then(res => {
-            console.log(sessionStorage.getItem("userName"))
-    
-          console.log(res.data.error);
-        //   const signedUp = res.data.error;
-        //   setShow(false);
-        //   if (signedUp !== undefined) {
-        //     setSign(true);
-        //   }
-        //   else {
-        //     setSign(false);
-    
-    
-        //     localStorage.setItem("signup", "success");
+          commnts: comm
+        };
+        
+        // Send the comment data to the server using axios
+        await axios.post('https://gofood-1-jhy3.onrender.com/api/comment', data)
+          .then(res => {
             alert("Comment submitted successfully.");
-            setComm("");
-
-            navigate("/")
-        //   }
-        })
+            setComm(""); // Clear the comment input after submission
+            navigate("/"); // Navigate to home page after successful submission
+          })
           .catch(function (error) {
-            // alert("Invalid");
-            // setShow(true);
-            // setSign(false);
-            console.log(error);
+            console.log(error); // Log any errors
           });
-    
-    
+    };
 
-
-    }
-    const handleChange = async(e) =>{
-        setComm(e.target.value);
-        console.log(comm);
-    }
-
-
-
-
+    // Function to handle changes in the comment input field
+    const handleChange = async (e) => {
+        setComm(e.target.value); // Update the comment state
+    };
 
     return (
-
-        <div style={{ backgroundImage: 'url("https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")', height: '100vh', width: '100vw', backgroundSize: 'cover' }}>
-            <div className="cards w-50 m-auto bg-dark" style={{ "top": "25%" }}>
-
-                {/* <div className="row"> */}
-
-
+        <div>
+             <div><Navbar/></div>
+        <div style={{ backgroundImage: 'url("https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")', height: '100vh', width: '100vw', backgroundSize: 'cover' }}>
+            <div className="cards w-50 m-auto">
                 <div className="col-10">
-
-                    <div className="comment-box  ">
-
+                    <div className="comment-box">
                         <h4 className='mb-4 text-white'>Add a comment</h4>
-
-                        {/* <div className="rating"> 
-                               <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label></input>
-                               <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label></input>
-                               <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label></input>
-                               <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label></input>
-                               <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label></input>
-                           </div> */}
-
                         <div className="comment-area">
-
-                            <textarea className="form-control w-15" placeholder="Write your review here" rows="5" value={comm} onChange={handleChange} ></textarea>
-
+                            <textarea className="form-control w-15" placeholder="Write your review here" rows="5" value={comm} onChange={handleChange}></textarea>
                         </div>
-
                         <div className="comment-btns mt-2">
-
-
-                            <Link to="/" className="m-3 mx-1 btn btn-danger" >Cancel</Link>
+                            <Link to="/" className="m-3 mx-1 btn btn-danger">Cancel</Link>
                             <button className="m-3 btn btn-success" onClick={handleSubmit}>Submit</button>
-
-
-
                         </div>
-
-
                     </div>
-
-                    {/* </div> */}
-
-
                 </div>
-
             </div>
         </div>
-    )
+        </div>
+        
+    );
 }

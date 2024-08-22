@@ -10,9 +10,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [cartView, setCartView] = useState(false)
   const data = useCart();
-  // console.log("authToken");
-  // console.log({sessionStorage.getItem("authToken")});
-  // sessionStorage.setItem('temp', "first")
+
   const handleLogout = () => {
     navigate("/login");
     sessionStorage.removeItem("userEmail");
@@ -30,10 +28,7 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto ">
-              <li className="nav-item">
-                <Link className="nav-link active fs-5" aria-current="page" to="/">Home</Link>
-              </li>
-              
+
               {(sessionStorage.getItem("userEmail"))?
               <li className="nav-item">
                 <Link className='nav-link  active fs-5' aria-current="page" to="/myorders">My Orders</Link>

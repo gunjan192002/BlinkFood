@@ -1,45 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 
-/* html,
-body {
-    height: 100%
-}
-
-body {
-    display: grid;
-   place-items: center;
-   background-color: #495057;
-    
-} */
-
 .cards {
     position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
     padding: 20px;
-    
     word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent with little blur */
+    backdrop-filter: blur(10px); /* Blurry background */
     border-radius: 6px;
-    /* -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1); */
     margin: auto;
     margin-top: 10%;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.2);
 }
 
-.comment-box{
-    
-    padding:5px;
+.comment-box {
+    padding: 5px;
 }
 
-
-
-.comment-area textarea{
-   resize: none; 
-        border: 1px solid #ad9f9f;
+.comment-area textarea {
+    resize: none;
+    border: 1px solid #ad9f9f;
+    background-color: white; /* White input field */
+    color: #000; /* Black text */
 }
-
 
 .form-control:focus {
     color: #495057;
@@ -49,4 +34,24 @@ body {
     box-shadow: 0 0 0 1px rgb(15, 186, 95) !important;
 }
 
+.btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.btn:hover {
+    transform: scale(1.1); /* Enlarge button on hover */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Add shadow on hover */
+}
+
+.comment-box:hover {
+    animation: shake 0.3s; /* Shaky effect */
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}

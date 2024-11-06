@@ -67,7 +67,7 @@ router.post('/createuser', [
     const html = template(datas);
 
     const email = {
-      from: 'mr.shivanggupta@gmail.com',
+      from: 'gunjan11223374@gmail@gmail.com',
       to: datas.userEmail,
       subject: 'Food Delivery',
       html: html,

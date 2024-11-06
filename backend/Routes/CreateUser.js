@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer');
 const handlebars = require('handlebars');
 const fs = require('fs');
-
+//here we have all routes relate to create user.
 const jwtSecret = "HaHa"
 
 

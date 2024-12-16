@@ -54,7 +54,7 @@ router.post('/orderData', async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'mr.shivanggupta@gmail.com',
+          user: 'gunjan11223374@gmail.com',
           pass: 'qutjvmkevdkmjjkl',
         },
       });
@@ -70,7 +70,7 @@ router.post('/orderData', async (req, res) => {
       const html = template(datas);
 
       const email = {
-        from: 'mr.shivanggupta@gmail.com',
+        from: 'gunjan11223374@gmail.com',
         to: datas.email,
         subject: 'Food Delivery',
         html: html,
